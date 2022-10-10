@@ -24,3 +24,4 @@ Write a script that displays all users and their home directories, sorted by use
 Write a shell script that creates a file named exactly \*\'Best School\'\*$\?\*\*\*\*\*:) containing the text Best School ending by a new line.
 Write a script that displays a confused smiley.
 Write a command that finds all empty files and directories in the current directory and all sub-directories.
+Write a script that lists all the files with a .gif extension in the current directory and all its sub-directories.
