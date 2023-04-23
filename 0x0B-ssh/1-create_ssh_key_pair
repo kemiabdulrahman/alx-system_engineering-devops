@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Name of the created private key = school
+# Number of bits in the created key to be created = 4096
+
+ssh-keygen -f school -b 4096 -N betty
