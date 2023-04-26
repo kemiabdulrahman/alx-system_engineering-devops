@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #install ngix and put holberton inside
 
-redirect_me="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+redi="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
 
 sudo apt-get update
 sudo apt-get install nginx -y
 echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
-sudo sed -i "30i $redirect_me" /etc/nginx/sites-available/default
+sudo sed -i "30i $redi" /etc/nginx/sites-available/default
 sudo service nginx start
