@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # sets up a new 301 redirection  page
 
-apt-get -y update
+apt-get update
 apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www
-echo "Hello World!" > /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.html
 sudo mv index.html /var/www/html
 
-SERVER_CONFIG = \ 
+SERVER_CONFIG =\ 
 "server { 
          listen 80 default_server; 
          listen [::]:80 default_server; 
@@ -25,9 +25,10 @@ SERVER_CONFIG = \
  }"
 
 
-bash -c "echo 'SERVER_CONFIG'" > /etc/nginx/sites-enabled/default"
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 if [ "$(pgrep -c nginx)" -le 0 ]; 
 then service nginx start
 else
 	service nginx restart
+fi
 
