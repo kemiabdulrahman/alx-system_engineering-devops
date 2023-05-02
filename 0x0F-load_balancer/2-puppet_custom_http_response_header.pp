@@ -17,8 +17,3 @@ exec { 'update':
   command  => 'sudo service nginx restart',
   provider => shell,
 }
-
-
-
-
-
