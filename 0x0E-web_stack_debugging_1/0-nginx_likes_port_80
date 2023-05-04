@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script that sets the port 80
+# sets the port 80.
 sed -i "s/listen 8080 default_server;/listen 80 default_server;/" /etc/nginx/sites-enabled/default
 sed -i "s/listen \[::\]:8080 default_server ipv4only=on;/listen \[::\]:80 default_server;/" /etc/nginx/sites-enabled/default
 sed -i "s/ ipv4only=on//" /etc/nginx/sites-available/default
