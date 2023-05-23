@@ -2,6 +2,7 @@
 '''
 Python script that, using this REST API, for a given employee ID
 '''
+import json
 import requests
 from sys import argv
 
@@ -12,12 +13,12 @@ if __name__ == "__main__":
         req = requests.get("{}users/{}".format(url, user))
         name = req.json().get("name")
         if name is not None:
-            jreq = requests.get(
+            jsonreq = requests.get(
                 "{}todos?userId={}".format(
                     url, user)).json()
-            alltsk = len(jreq)
+            alltsk = len(jsonreq)
             completedtsk = []
-            for t in jreq:
+            for t in jsonreq:
                 if t.get("completed") is True:
                     completedtsk.append(t)
             count = len(completedtsk)

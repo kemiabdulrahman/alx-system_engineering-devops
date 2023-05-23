@@ -8,16 +8,16 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    uid = argv[1]
-    url = "https://jsonplaceholder.typicode.com/users/{}".format(uid)
+    userid = argv[1]
+    url = "https://jsonplaceholder.typicode.com/users/{}".format(userid)
     user = requests.get(url, verify=False).json()
-    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(uid)
+    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(userid)
     todo = requests.get(url, verify=False).json()
     name = user.get('username')
-    t = [{"task": t.get("title"),
+    t = [{"task": i.get("title"),
           "username": name,
-          "completed": t.get("completed")} for t in todo]
+          "completed": i.get("completed")} for i in todo]
     bj = {}
-    bj[uid] = t
-    with open("{}.json".format(uid), 'w') as filejs:
+    bj[userid] = t
+    with open("{}.json".format(userid), 'w') as filejs:
         json.dump(bj, filejs)

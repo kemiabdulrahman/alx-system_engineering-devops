@@ -16,10 +16,10 @@ if __name__ == '__main__':
         undoc[uid] = user.get("username")
     url = "https://jsonplaceholder.typicode.com/todos"
     todo = requests.get(url, verify=False).json()
-    [udoc.get(t.get("userId")).append({"task": t.get("title"),
-                                       "completed": t.get("completed"),
+    [udoc.get(i.get("userId")).append({"task": i.get("title"),
+                                       "completed": i.get("completed"),
                                        "username": undoc.get(
-                                               t.get("userId"))})
-     for t in todo]
+                                               i.get("userId"))})
+     for i in todo]
     with open("todo_all_employees.json", 'w') as jsf:
         json.dump(udoc, jsf)
