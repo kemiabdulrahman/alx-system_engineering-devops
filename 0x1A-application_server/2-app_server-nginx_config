@@ -1,11 +1,9 @@
 listen 80;
-    server {
-    listen 80;
-    server_name 54.160.126.112 181854-web-01;
+server_name 54.160.126.112 181854-web-01;
 
-    location /airbnb-onepage/ {
+location /airbnb-onepage/ {
         include proxy_params;
         proxy_pass http://unix:/home/ubuntu/AirBnB_clone_2/web_flask/airbnb-onepage.sock;
     }
 
-    }
+
