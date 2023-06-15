@@ -1,6 +1,11 @@
-location /airbnb-onepage/ {
-    proxy_pass http://localhost:5000;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-}
+listen 80;
+    server {
+    listen 80;
+    server_name 54.160.126.112 181854-web-01;
 
+    location /airbnb-onepage/ {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_2/web_flask/airbnb-onepage.sock;
+    }
+
+    }
